@@ -13,6 +13,11 @@ var Dice = function (value) {
         this.value = this.roll();
         this.div.innerText = this.value;
     }.bind(this));
+ //remove a dice from array   
+    this.div.addEventListener("dblclick", function (){
+        this.div.remove();
+        var id = objArray.indexOf(this);
+    }.bind(this));
 }
 
 //object class function to randomize dice roll//
@@ -23,17 +28,13 @@ var Dice = function (value) {
     document.getElementById('genDie').addEventListener('click',function(){
             var d = new Dice();
             objArray.push(d);
-    })    
+    });    
 
-// }.bind(this);
-
-
-// function addDice() {
-//     var newDice = document.createElement("div");
-//     newDice.className = "dice"
-//     newDice.innerText = this.value;
-//     document.body.appendChild(newDice);
-//     container.appendChild(newDice);
-// }
+document.getElementById("rollDice").addEventListener("click",function (){
+    for (var i = 0; i<objArray.length; i++){
+    objArray[i].value = objArray[i].roll();
+    objArray[i].div.innerText = objArray[i].value;
+    }
+})
 
 
