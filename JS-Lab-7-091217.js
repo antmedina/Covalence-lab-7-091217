@@ -3,17 +3,19 @@ var objArray = [];
 // create object class //
 var Dice = function (value) {
     this.value = this.roll();
+ //create the element where this value will live   
     this.div = document.createElement("div");
     this.div.innerText = this.value;
+ //create class for this div to style in CSS   
     this.div.className = "dice";
 //append created dice elements to container
     document.getElementById('container').appendChild(this.div);
-//event to "roll" the value of each dice
+//event to "re-roll" the value of each die clicked on
     this.div.addEventListener("click", function () {
         this.value = this.roll();
         this.div.innerText = this.value;
     }.bind(this));
-//remove a dice from array   
+//remove a dice from array by double click -->does not work with sum and multiply
     // this.div.addEventListener("dblclick", function () {
     //     this.div.remove();
     //     var id = objArray.indexOf(this);
